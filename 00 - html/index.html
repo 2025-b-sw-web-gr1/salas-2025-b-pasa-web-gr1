@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aprende HTML Básico</title>
+    <style>
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e40af;
+      --background-color: #f8fafc;
+      --text-color: #1e293b;
+      --border-color: #e2e8f0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    header p {
+      margin: 1rem 0 0;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    nav {
+      background-color: white;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding: 0.5rem;
+    }
+
+    .nav-link {
+      color: var(--text-color);
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      white-space: nowrap;
+      transition: all 0.18s ease;
+      border: 1px solid transparent;
+      background-color: rgba(37, 99, 235, 0.06);
+      box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+      font-weight: 600;
+    }
+
+    .nav-link:hover {
+      background-color: var(--primary-color);
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    .nav-link:focus {
+      outline: 3px solid rgba(37, 99, 235, 0.25);
+      outline-offset: 3px;
+    }
+
+    .nav-link.active {
+      background-color: var(--secondary-color);
+      color: white;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 1rem auto;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 1rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    section {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    section:last-child {
+      border-bottom: none;
+    }
+
+    h2.title {
+      color: var(--primary-color);
+      margin-top: 2rem;
+      font-size: 1.8rem;
+      scroll-margin-top: 110px;
+    }
+
+    .example .muted {
+      color: #475569;
+      font-size: 0.95rem;
+      margin-top: 0.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    pre {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      padding: 1rem;
+      overflow-x: auto;
+      border-radius: 0.5rem;
+      font-size: 0.95rem;
+      margin: 1rem 0;
+    }
+
+    code {
+      background-color: #f1f5f9;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.25rem;
+      font-size: 0.9em;
+    }
+
+    .example {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      margin: 1rem 0 2rem;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .example-label {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .tip {
+      background-color: #ecfdf5;
+      border-left: 4px solid #10b981;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        padding: 1rem;
+        margin: 1rem;
+      }
+
+      .nav-container {
+        padding: 0.25rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📚 Aprende HTML Básico</h1>
+    <p>Guía interactiva para comprender los fundamentos del lenguaje que estructura la web</p>
+  </header>
+
+  <nav>
+    <div class="nav-container">
+      <a href="#introduccion" class="nav-link">Introducción</a>
+      <a href="#estructura" class="nav-link">Estructura</a>
+      <a href="#encabezados" class="nav-link">Encabezados</a>
+      <a href="#parrafos" class="nav-link">Párrafos</a>
+      <a href="#enlaces" class="nav-link">Enlaces</a>
+      <a href="#imagenes" class="nav-link">Imágenes</a>
+      <a href="#listas" class="nav-link">Listas</a>
+      <a href="#tablas" class="nav-link">Tablas</a>
+      <a href="#formularios" class="nav-link">Formularios</a>
+      <a href="#botones" class="nav-link">Botones</a>
+    </div>
+  </nav>
+
+  <main>
+    <section>
+        <h2 id="introduccion">¿Qué es HTML?</h2>
+        
+      <p>
+        HTML (HyperText Markup Language) es el lenguaje estándar para crear páginas web. 
+        Define la estructura del contenido mediante <strong>etiquetas</strong> y <strong>elementos</strong>.
+      </p>
+        <div class="tip">
+          <strong>💡 Tip:</strong> HTML no es un lenguaje de programación, es un lenguaje de marcado
+          que define la estructura y significado del contenido web.
+        </div>
+    </section>
+
+    <section>
+        <h2 id="estructura">Estructura básica de una página HTML</h2>
+        
+      <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Mi primera página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;¡Hola mundo!&lt;/h1&gt;
+  &lt;p&gt;Este es mi primer párrafo en HTML.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+      </pre>
+
+      <div class="example">
+          
+        <h1>¡Hola mundo!</h1>
+        <p>Este es mi primer párrafo en HTML.</p>
+      </div>
+        <div class="tip">
+          <strong>💡 Tip:</strong> Cada etiqueta HTML tiene un propósito específico.
+          El <code>&lt;head&gt;</code> contiene metadatos y el <code>&lt;body&gt;</code> el contenido visible.
+        </div>
+    </section>
+
+    <section>
+      <h2 id="encabezados" class="title">Encabezados en HTML</h2>
+      <p>
+        Los encabezados se definen con las etiquetas <code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code>.
+        Son fundamentales para estructurar el contenido y mejorar la accesibilidad.
+      </p>
+      <pre>
+&lt;h1&gt;Encabezado 1&lt;/h1&gt;
+&lt;h2&gt;Encabezado 2&lt;/h2&gt;
+&lt;h3&gt;Encabezado 3&lt;/h3&gt;
+      </pre>
+
+      <div class="example">
+        <div style="display:flex; flex-direction:column; gap:0.5rem;">
+          <div>
+            <h1>Encabezado 1</h1>
+          </div>
+
+          <div>
+            <h2>Encabezado 2</h2>
+          </div>
+
+          <div>
+            <h3>Encabezado 3</h3>
+          </div>
+        </div>
+      </div>
+      <div class="tip">
+        <strong>💡 Tip:</strong> Use <code>&lt;h1&gt;</code> solo una vez por página,
+        para el título principal. Los demás encabezados deben seguir una jerarquía lógica.
+      </div>
+    </section>
+
+    <section>
+      <h2 id="parrafos" class="title">Párrafos y Formato de Texto</h2>
+      
+      <p>
+        Los párrafos se crean con <code>&lt;p&gt;</code>. También se pueden usar etiquetas como 
+        <code>&lt;strong&gt;</code> (énfasis fuerte), <code>&lt;em&gt;</code> (énfasis),
+        <code>&lt;mark&gt;</code> (resaltado) y <code>&lt;u&gt;</code> (subrayado).
+      </p>
+      <pre>
+&lt;p&gt;Texto normal con &lt;strong&gt;énfasis fuerte&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Texto con &lt;em&gt;énfasis&lt;/em&gt; y &lt;mark&gt;resaltado&lt;/mark&gt;&lt;/p&gt;
+&lt;p&gt;Texto con &lt;u&gt;subrayado&lt;/u&gt;&lt;/p&gt;
+      </pre>
+      <div class="example">
+        
+        <p>Texto normal con <strong>énfasis fuerte</strong></p>
+        <p>Texto con <em>énfasis</em> y <mark>resaltado</mark></p>
+        <p>Texto con <u>subrayado</u></p>
+      </div>
+      <div class="tip">
+        <strong>💡 Tip:</strong> Prefiera <code>&lt;strong&gt;</code> y <code>&lt;em&gt;</code>
+        sobre <code>&lt;b&gt;</code> y <code>&lt;i&gt;</code> ya que proporcionan significado
+        semántico además del formato visual.
+      </div>
+    </section>
+
+    <section>
+      <h2 id="enlaces" class="title">Enlaces</h2>
+      <p>
+        Los enlaces se crean con <code>&lt;a&gt;</code> y el atributo <code>href</code> define su destino.
+      </p>
+      <pre>
+&lt;a href="https://www.w3schools.com"&gt;Visitar W3Schools&lt;/a&gt;
+      </pre>
+      <div class="example">
+        <a href="https://www.w3schools.com" target="_blank">Visitar W3Schools</a>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="imagenes" class="title">Imágenes</h2>
+      <p>
+        La etiqueta <code>&lt;img&gt;</code> inserta imágenes. Usa <code>src</code> para el enlace y 
+        <code>alt</code> para el texto alternativo.
+      </p>
+      <pre>
+&lt;img src="https://www.w3schools.com/html/img_chania.jpg" alt="Paisaje"&gt;
+      </pre>
+      <div class="example">
+        <img src="https://www.w3schools.com/html/img_chania.jpg" alt="Paisaje" width="250">
+      </div>
+    </section>
+
+    <section>
+      <h2 id="listas" class="title">Listas</h2>
+      <p>Existen listas ordenadas (<code>&lt;ol&gt;</code>) y no ordenadas (<code>&lt;ul&gt;</code>).</p>
+      <pre>
+&lt;ul&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+  &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Paso 1&lt;/li&gt;
+  &lt;li&gt;Paso 2&lt;/li&gt;
+&lt;/ol&gt;
+      </pre>
+      <div class="example">
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+        </ul>
+
+        <ol>
+          <li>Paso 1</li>
+          <li>Paso 2</li>
+        </ol>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="tablas" class="title">Tablas</h2>
+      <p>Las tablas se crean con <code>&lt;table&gt;</code>, filas con <code>&lt;tr&gt;</code>, 
+         encabezados con <code>&lt;th&gt;</code> y celdas con <code>&lt;td&gt;</code>.</p>
+      <pre>
+&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Nombre&lt;/th&gt;
+    &lt;th&gt;Edad&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Juan&lt;/td&gt;
+    &lt;td&gt;25&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+      </pre>
+      <div class="example">
+        <table border="1" style="border-collapse: collapse; width: 50%;">
+          <tr>
+            <th style="padding: 8px;">Nombre</th>
+            <th style="padding: 8px;">Edad</th>
+          </tr>
+          <tr>
+            <td style="padding: 8px;">Juan</td>
+            <td style="padding: 8px;">25</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="formularios" class="title">Formularios</h2>
+      <p>Los formularios se crean con <code>&lt;form&gt;</code> y pueden contener varios tipos de inputs.</p>
+      <pre>
+&lt;form action="/enviar" method="post"&gt;
+  &lt;label for="nombre"&gt;Nombre:&lt;/label&gt;
+  &lt;input type="text" id="nombre" name="nombre"&gt;
+  
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email"&gt;
+  
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;
+      </pre>
+      <div class="example">
+        <form action="#" method="post" style="display: flex; flex-direction: column; gap: 10px; max-width: 300px;">
+          <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" style="width: 100%; margin-top: 5px;">
+          </div>
+          <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" style="width: 100%; margin-top: 5px;">
+          </div>
+          <button type="submit" style="width: fit-content; margin-top: 10px;">Enviar</button>
+        </form>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="botones" class="title" >Botones</h2>
+      <p>Los botones en HTML se pueden crear de dos formas principales: usando la etiqueta <code>&lt;button&gt;</code> 
+         o usando <code>&lt;input type="button"&gt;</code>. Los botones pueden tener diferentes estilos y tipos.</p>
+      
+      <h3>Tipos de Botones</h3>
+      <pre>
+&lt;!-- Botón básico --&gt;
+&lt;button type="button"&gt;Botón Simple&lt;/button&gt;
+
+&lt;!-- Botón de envío de formulario --&gt;
+&lt;button type="submit"&gt;Enviar Formulario&lt;/button&gt;
+
+&lt;!-- Botón de reinicio de formulario --&gt;
+&lt;button type="reset"&gt;Reiniciar&lt;/button&gt;
+
+&lt;!-- Botón usando input --&gt;
+&lt;input type="button" value="Botón con Input"&gt;</pre>
+      
+      <div class="example">
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <!-- Botón básico -->
+          <button type="button" style="padding: 8px 16px; background-color: #4c89c6; color: white; border: none; border-radius: 4px; cursor: pointer;">
+            Botón Simple
+          </button>
+
+          <!-- Botón de envío -->
+          <button type="submit" style="padding: 8px 16px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;">
+            Enviar Formulario
+          </button>
+
+          <!-- Botón de reinicio -->
+          <button type="reset" style="padding: 8px 16px; background-color: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer;">
+            Reiniciar
+          </button>
+
+          <!-- Botón usando input -->
+          <input type="button" value="Botón con Input" style="padding: 8px 16px; background-color: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer;">
+        </div>
+      </div>
+
+      <h3>Botones con Iconos</h3>
+      <p>Los botones pueden incluir iconos junto con texto:</p>
+      <pre>
+&lt;button type="button"&gt;
+  &lt;span&gt;🔍&lt;/span&gt; Buscar
+&lt;/button&gt;
+
+&lt;button type="button"&gt;
+  &lt;span&gt;💾&lt;/span&gt; Guardar
+&lt;/button&gt;</pre>
+      
+      <div class="example">
+        <div style="display: flex; gap: 10px;">
+          <button type="button" style="padding: 8px 16px; background-color: #4c89c6; color: white; border: none; border-radius: 4px; cursor: pointer;">
+            <span>🔍</span> Buscar
+          </button>
+
+          <button type="button" style="padding: 8px 16px; background-color: #4c89c6; color: white; border: none; border-radius: 4px; cursor: pointer;">
+            <span>💾</span> Guardar
+          </button>
+        </div>
+      </div>
+
+      <h3>Botones Deshabilitados</h3>
+      <p>Los botones pueden deshabilitarse usando el atributo <code>disabled</code>:</p>
+      <pre>
+&lt;button type="button" disabled&gt;Botón Deshabilitado&lt;/button&gt;</pre>
+      
+      <div class="example">
+        <button type="button" disabled style="padding: 8px 16px; background-color: #6c757d; color: white; border: none; border-radius: 4px; opacity: 0.65; cursor: not-allowed;">
+          Botón Deshabilitado
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Creado para aprender HTML — Basado en los contenidos de W3Schools</p>
+  </footer>
+  <script>
+    // Marcar enlace activo al hacer scroll
+    (function() {
+      const links = Array.from(document.querySelectorAll('.nav-link'));
+      const sections = links.map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+
+      if ('IntersectionObserver' in window && sections.length) {
+        const obs = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            const id = entry.target.id;
+            const link = document.querySelector('.nav-link[href="#' + id + '"]');
+            if (entry.isIntersecting) {
+              links.forEach(l => l.classList.remove('active'));
+              if (link) link.classList.add('active');
+            }
+          });
+        }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 });
+
+        sections.forEach(s => obs.observe(s));
+      }
+    })();
+  </script>
+</body>
+</html>
