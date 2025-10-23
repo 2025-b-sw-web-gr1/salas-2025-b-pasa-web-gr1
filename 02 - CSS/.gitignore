@@ -1,0 +1,57 @@
+# Node dependencies
+node_modules/
+
+# npm logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# dotenv environment files
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Build outputs
+dist/
+build/
+
+# Logs and temp
+logs/
+*.log
+tmp/
+temp/
+
+# Windows specific
+ehthumbs.db
+Desktop.ini
+
+# npm package lock (optional - if you track it remove this)
+# package-lock.json
+
+# Visual Studio Code test output
+coverage/
+
+# Ignore educational project node_modules if present
+02 - CSS/node_modules/
+
+# Allow the educational files we added
+!02 - CSS/package.json
+
+# Misc
+*.local
+
+# JetBrains IDE
+out/
+.idea/
+*.iml

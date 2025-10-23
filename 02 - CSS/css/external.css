@@ -1,0 +1,13 @@
+/* external.css - hoja externa demostrativa */
+:root {
+  --main-bg: #fff8e1;
+  --accent: #8a2be2;
+}
+body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:var(--main-bg); color:#222 }
+.demo-box { padding:12px; border-radius:6px; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,0.06)}
+.external-demo { border-left:4px solid var(--accent); padding:10px; background:linear-gradient(90deg,#fff,#f7f3ff) }
+.import-demo { border:2px dashed #b0a0ff; padding:10px }
+.preload-demo { padding:10px; background:#f0fff4; border-radius:4px }
+
+/* This file imports another CSS file to demonstrate @import (see imported.css) */
+@import url('imported.css');

@@ -1,0 +1,4 @@
+/* dynamic.css - cargada dinámicamente via JS */
+#dynamic-link-demo { background: linear-gradient(90deg,#fff,#e8f6ff); border-left:6px solid #2a9df4 }
+.demo-box { transition: transform 200ms ease }
+#dynamic-link-demo:hover { transform: translateY(-4px) }

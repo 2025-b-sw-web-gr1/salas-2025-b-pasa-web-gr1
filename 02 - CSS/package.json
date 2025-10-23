@@ -1,0 +1,12 @@
+{
+  "name": "educational-styles",
+  "version": "1.0.0",
+  "description": "Proyecto educativo que muestra distintas formas de cargar CSS en una página web.",
+  "private": true,
+  "scripts": {
+    "start": "http-server ./ -p 8080 -c-1"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

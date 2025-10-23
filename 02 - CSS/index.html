@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Formas de cargar estilos en HTML — Educativo</title>
+  <meta name="description" content="Ejemplos prácticos de cómo cargar estilos en una página web: inline, atributo style, <style>, <link>, @import, preload, dinámico con JS, fetch e Shadow DOM.">
+  <!-- Enlace externo normal -->
+  <link rel="stylesheet" href="css/external.css">
+  <!-- @import dentro de una hoja externa (demo) -->
+  <!-- Preload (ejemplo) -->
+  <link rel="preload" href="css/external.css" as="style" onload="this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="css/external.css">
+  </noscript>
+  <style>
+    /* Estilos internos en <head> */
+    header { background:#0b6; padding:12px; border-radius:6px }
+    header h1 { margin:0; font-family: system-ui, sans-serif }
+    section.example { border:1px dashed #999; padding:12px; margin:12px 0; border-radius:6px }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Formas de cargar estilos en HTML</h1>
+    <p>Proyecto educativo: ejemplos y explicación.</p>
+  </header>
+
+  <main style="padding:16px; max-width:900px; margin:auto">
+    <section class="example">
+      <h2>1) Inline CSS (estilo en atributo "style")</h2>
+      <p>Aplicado directamente en el atributo <code>style</code> de un elemento.</p>
+      <div style="background:linear-gradient(90deg,#ffd 0%, #fdd 100%); padding:10px; border-radius:4px">Este bloque usa el atributo <code>style</code>.</div>
+    </section>
+
+    <section class="example">
+      <h2>2) Estilos inline con la propiedad <code>style</code> de DOM (JS)</h2>
+      <p>Modificando estilos desde JavaScript usando <code>element.style</code>.</p>
+      <div id="jsStyleDemo" class="demo-box">Usa JS para cambiar mi color en 1s...</div>
+    </section>
+
+    <section class="example">
+      <h2>3) Estilo interno: &lt;style&gt; en el documento</h2>
+      <p>Se coloca en el <code>&lt;head&gt;</code> o dentro del <code>&lt;body&gt;</code> y aplica a todo el documento.</p>
+      <style>
+        .internal-demo { background:#eef; padding:10px; border-radius:4px }
+      </style>
+      <div class="internal-demo">Este bloque usa una etiqueta &lt;style&gt; interna.</div>
+    </section>
+
+    <section class="example">
+      <h2>4) Hoja externa con &lt;link rel="stylesheet"&gt;</h2>
+      <p>La forma más común: archivo CSS servido por HTTP.</p>
+      <div class="external-demo">Este bloque usa la hoja externa <code>css/external.css</code>.</div>
+    </section>
+
+    <section class="example">
+      <h2>5) @import en CSS</h2>
+      <p>Se puede importar otra hoja desde una hoja CSS usando <code>@import</code>. Atención al rendimiento: puede bloquear renderizado cuando se usa en el <code>head</code>.</p>
+      <div class="import-demo">Este bloque muestra estilos importados desde otra hoja CSS.</div>
+    </section>
+
+    <section class="example">
+      <h2>6) Preload de CSS</h2>
+      <p>Permite priorizar la carga de una hoja (se convierte en <code>rel=stylesheet</code> cuando carga). Útil para performance.</p>
+      <div class="preload-demo">Este bloque demuestra estilos que podrían precargarse.</div>
+    </section>
+
+    <section class="example">
+      <h2>7) Carga dinámica con JavaScript (&lt;link&gt;)</h2>
+      <p>Crear y añadir un <code>&lt;link&gt;</code> dinámicamente desde JS.</p>
+      <button id="loadLinkBtn">Cargar hoja dinámica</button>
+      <div id="dynamic-link-demo" class="demo-box">Estilos dinámicos via &lt;link&gt;</div>
+    </section>
+
+    <section class="example">
+      <h2>8) Fetch + inject (CSS inline vía &lt;style&gt;)</h2>
+      <p>Traer el contenido CSS por HTTP y inyectarlo en un <code>&lt;style&gt;</code>. Útil para manipulación o pequeñas reglas.</p>
+      <button id="fetchCssBtn">Fetch + Inject CSS</button>
+      <div id="fetch-inline-demo" class="demo-box">Estilos añadidos por fetch + inject.</div>
+    </section>
+
+    <section class="example">
+      <h2>9) Shadow DOM (estilos encapsulados)</h2>
+      <p>Estilos aplicados a un Shadow Root no afectan el documento y viceversa.</p>
+      <div id="shadow-host"></div>
+    </section>
+
+    <section class="example">
+      <h2>10) CSS Modules / Bundlers (nota)</h2>
+      <p>En aplicaciones modernas (React, Vite, Webpack) existen soluciones que generan clases únicas. No se muestra un build aquí, pero es importante conocerlo.</p>
+    </section>
+
+    <hr>
+    <p>Revisa <code>js/dynamic-styles.js</code> para ver cómo funciona la carga dinámica y <code>css/external.css</code> y <code>css/imported.css</code> para ejemplos de reglas.</p>
+  </main>
+
+  <script src="js/dynamic-styles.js"></script>
+</body>
+</html>

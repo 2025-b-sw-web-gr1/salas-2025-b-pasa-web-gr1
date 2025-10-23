@@ -1,0 +1,3 @@
+/* imported.css - reglas cargadas vía @import desde external.css */
+.import-demo { background: linear-gradient(180deg,#fff,#eef); color:#203050 }
+.import-demo::after { content: ' (estilo desde imported.css)'; font-weight:600 }
