@@ -1,0 +1,20 @@
+meta {
+  name: get-photos-by-album
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://jsonplaceholder.typicode.com/photos?albumId=1
+  body: none
+  auth: inherit
+}
+
+params:query {
+  albumId: 1
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
