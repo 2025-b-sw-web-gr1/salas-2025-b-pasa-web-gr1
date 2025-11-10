@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">SKT T1 - Worlds</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${title}">SKT T1</h1>
+
+    <section>
+        <h2>🏆 Historia de SK Telecom T1</h2>
+        <img src="/img/sktt1.jpg" alt="T1 Logo" class="photo">
+        <p>
+            <strong>SK Telecom T1</strong> fue fundado en Corea del Sur en 2012 y se convirtió en una de las
+            organizaciones más exitosas en la historia de los esports.
+            Liderados por <strong>Lee “Faker” Sang-hyeok</strong>, dominaron el escenario internacional de
+            <em>League of Legends</em> durante la primera mitad de la década.
+        </p>
+
+        <p>SKT T1 ganó el Campeonato Mundial en las siguientes ediciones:</p>
+        <ul>
+            <li th:each="year : ${yearsSKT}" th:text="${year}">2013</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>🔥 T1 en la nueva era</h2>
+        <img src="/img/t1.jpg" alt="Faker levantando la copa" class="photo">
+        <p>
+            En 2019, la organización cambió oficialmente su nombre a <strong>T1</strong>.
+            A pesar de los desafíos, T1 volvió a la cima ganando los Campeonatos Mundiales de 2023, 2024 y 2025,
+            reafirmando su dominio en la escena competitiva y consolidando aún más la leyenda de Faker.
+        </p>
+
+        <p>T1 ganó el Mundial en:</p>
+        <ul>
+            <li th:each="year : ${yearsT1}" th:text="${year}">2023</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>© 2025 - Página informativa hecha con Spring Boot y Thymeleaf</p>
+    </footer>
+</div>
+</body>
+</html>
