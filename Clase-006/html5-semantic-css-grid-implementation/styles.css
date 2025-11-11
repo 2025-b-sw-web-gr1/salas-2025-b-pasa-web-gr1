@@ -1,0 +1,251 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales del body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+/* ==================== HEADER ==================== */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    color: #667eea;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* ==================== NAVEGACIÓN (FLEXBOX) ==================== */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #667eea;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+nav a:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ==================== MAIN CONTAINER ==================== */
+main {
+    max-width: 1400px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+/* ==================== SECTION DE INTRODUCCIÓN ==================== */
+.intro-section {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.intro-section h2 {
+    color: #667eea;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+/* ==================== GRID DE ESTÁNDARES (CSS GRID) ==================== */
+.standards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* ==================== TARJETAS DE ESTÁNDARES ==================== */
+article.standard-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+article.standard-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+article.standard-card header {
+    position: static;
+    background: none;
+    padding: 0;
+    box-shadow: none;
+    margin-bottom: 1rem;
+}
+
+article.standard-card h3 {
+    color: #764ba2;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.icon {
+    font-size: 2rem;
+}
+
+article.standard-card .description {
+    color: #555;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+article.standard-card .justification {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-left: 4px solid #667eea;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+/* ==================== SECTION DE REFLEXIÓN (FLEXBOX) ==================== */
+.reflection-section {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.reflection-section h2 {
+    color: #667eea;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.reflection-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.reflection-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.reflection-item:hover {
+    transform: translateX(10px);
+}
+
+.reflection-number {
+    background: #667eea;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.reflection-content h3 {
+    color: #764ba2;
+    margin-bottom: 0.5rem;
+}
+
+.reflection-content p {
+    color: #555;
+    line-height: 1.8;
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+footer a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    nav {
+        gap: 1rem;
+    }
+
+    .standards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-section,
+    .reflection-section {
+        padding: 1.5rem;
+    }
+
+    .reflection-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
