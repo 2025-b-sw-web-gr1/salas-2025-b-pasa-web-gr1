@@ -82,5 +82,5 @@ Proyecto-001/
 
 ---
 
-Especificación completa: Consulte el archivo `football-api.yaml` para detalles técnicos adicionales.
+Especificación completa: Consulte el archivo `company-api.yaml` para detalles técnicos adicionales.
 
