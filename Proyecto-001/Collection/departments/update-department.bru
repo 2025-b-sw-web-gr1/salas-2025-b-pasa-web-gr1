@@ -1,0 +1,31 @@
+meta {
+  name: update-department
+  type: http
+  seq: 4
+}
+
+put {
+  url: https://api.ejemplo.com/departments/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Finance",
+    "location": "London"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

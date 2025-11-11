@@ -1,0 +1,16 @@
+meta {
+  name: get-all-departments
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://api.ejemplo.com/departments
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

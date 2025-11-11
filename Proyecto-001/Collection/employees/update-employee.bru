@@ -1,0 +1,34 @@
+meta {
+  name: update-employee
+  type: http
+  seq: 4
+}
+
+put {
+  url: https://api.ejemplo.com/employees/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "John Smith",
+    "position": "Project Manager",
+    "departmentId": 2,
+    "email": "john.smith@example.com",
+    "salary": 80000
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

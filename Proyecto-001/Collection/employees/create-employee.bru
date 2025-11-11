@@ -1,0 +1,30 @@
+meta {
+  name: create-employee
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://api.ejemplo.com/employees
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Alice Johnson",
+    "position": "Software Engineer",
+    "departmentId": 1,
+    "email": "alice.johnson@example.com",
+    "salary": 65000
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

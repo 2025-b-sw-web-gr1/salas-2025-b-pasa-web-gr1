@@ -1,0 +1,16 @@
+meta {
+  name: get-all-employees
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://api.ejemplo.com/employees
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

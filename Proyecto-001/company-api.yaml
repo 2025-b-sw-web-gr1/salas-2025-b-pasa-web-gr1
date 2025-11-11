@@ -1,0 +1,168 @@
+openapi: 3.0.3
+info:
+  title: Company API
+  version: 1.0.0
+  description: API para gestionar departamentos y empleados (relación 1:N).
+
+servers:
+  - url: https://api.ejemplo.com
+
+paths:
+  /departments:
+    get:
+      summary: Obtener todos los departamentos
+      responses:
+        '200':
+          description: Lista de departamentos
+    post:
+      summary: Crear un nuevo departamento
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Department'
+      responses:
+        '201':
+          description: Departamento creado
+
+  /departments/{id}:
+    get:
+      summary: Obtener un departamento por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Detalles del departamento
+    put:
+      summary: Actualizar un departamento
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Department'
+      responses:
+        '200':
+          description: Departamento actualizado
+    delete:
+      summary: Eliminar un departamento
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Eliminado exitosamente
+
+  /departments/{id}/employees:
+    get:
+      summary: Obtener empleados por ID de departamento
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Lista de empleados del departamento
+
+  /employees:
+    get:
+      summary: Obtener todos los empleados
+      responses:
+        '200':
+          description: Lista de empleados
+    post:
+      summary: Crear un nuevo empleado
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee'
+      responses:
+        '201':
+          description: Empleado creado
+
+  /employees/{id}:
+    get:
+      summary: Obtener un empleado por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Detalles del empleado
+    put:
+      summary: Actualizar un empleado
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee'
+      responses:
+        '200':
+          description: Empleado actualizado
+    delete:
+      summary: Eliminar un empleado
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Eliminado exitosamente
+
+components:
+  schemas:
+    Department:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        location:
+          type: string
+
+    Employee:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        position:
+          type: string
+        departmentId:
+          type: integer
+        email:
+          type: string
+        salary:
+          type: number
