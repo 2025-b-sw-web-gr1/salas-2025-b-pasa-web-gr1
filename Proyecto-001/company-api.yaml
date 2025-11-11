@@ -165,6 +165,27 @@ paths:
         "204":
           description: Employee deleted
 
+  /departments/{id}/employees:
+    get:
+      summary: Get all employees by department ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: List of employees in the department
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Employee"
+        "404":
+          description: Department not found
+
 components:
   schemas:
     Department:
