@@ -28,7 +28,7 @@ Proyecto-001/
     │   └── delete-employee.bru         # DELETE /employees/{id}
     └── departments-employees/          # Endpoints de relaciones
         ├── folder.bru
-        └── get-all-players-by-team-id.bru  # GET /departments/{id}/employees
+        └── get-all-employees-by-department-id.bru  # GET /departments/{id}/employees
 ```
 
 ## Endpoints
