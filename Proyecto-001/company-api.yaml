@@ -1,34 +1,43 @@
 openapi: 3.0.3
 info:
-  title: Company API
+  title: Department - Employee API
+  description: API for managing departments and their employees.
   version: 1.0.0
-  description: API para gestionar departamentos y empleados (relación 1:N).
-
 servers:
   - url: https://api.ejemplo.com
 
 paths:
   /departments:
     get:
-      summary: Obtener todos los departamentos
+      summary: Get all departments
       responses:
-        '200':
-          description: Lista de departamentos
+        "200":
+          description: List of all departments
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Department"
     post:
-      summary: Crear un nuevo departamento
+      summary: Create a new department
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Department'
+              $ref: "#/components/schemas/DepartmentInput"
       responses:
-        '201':
-          description: Departamento creado
+        "201":
+          description: Department created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Department"
 
   /departments/{id}:
     get:
-      summary: Obtener un departamento por ID
+      summary: Get a department by ID
       parameters:
         - name: id
           in: path
@@ -36,10 +45,16 @@ paths:
           schema:
             type: integer
       responses:
-        '200':
-          description: Detalles del departamento
+        "200":
+          description: Department found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Department"
+        "404":
+          description: Department not found
     put:
-      summary: Actualizar un departamento
+      summary: Update a department by ID
       parameters:
         - name: id
           in: path
@@ -51,12 +66,16 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Department'
+              $ref: "#/components/schemas/DepartmentInput"
       responses:
-        '200':
-          description: Departamento actualizado
+        "200":
+          description: Department updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Department"
     delete:
-      summary: Eliminar un departamento
+      summary: Delete a department by ID
       parameters:
         - name: id
           in: path
@@ -64,43 +83,40 @@ paths:
           schema:
             type: integer
       responses:
-        '204':
-          description: Eliminado exitosamente
-
-  /departments/{id}/employees:
-    get:
-      summary: Obtener empleados por ID de departamento
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
-      responses:
-        '200':
-          description: Lista de empleados del departamento
+        "204":
+          description: Department deleted
 
   /employees:
     get:
-      summary: Obtener todos los empleados
+      summary: Get all employees
       responses:
-        '200':
-          description: Lista de empleados
+        "200":
+          description: List of all employees
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Employee"
     post:
-      summary: Crear un nuevo empleado
+      summary: Create a new employee
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Employee'
+              $ref: "#/components/schemas/EmployeeInput"
       responses:
-        '201':
-          description: Empleado creado
+        "201":
+          description: Employee created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Employee"
 
   /employees/{id}:
     get:
-      summary: Obtener un empleado por ID
+      summary: Get an employee by ID
       parameters:
         - name: id
           in: path
@@ -108,10 +124,16 @@ paths:
           schema:
             type: integer
       responses:
-        '200':
-          description: Detalles del empleado
+        "200":
+          description: Employee found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Employee"
+        "404":
+          description: Employee not found
     put:
-      summary: Actualizar un empleado
+      summary: Update an employee by ID
       parameters:
         - name: id
           in: path
@@ -123,12 +145,16 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Employee'
+              $ref: "#/components/schemas/EmployeeInput"
       responses:
-        '200':
-          description: Empleado actualizado
+        "200":
+          description: Employee updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Employee"
     delete:
-      summary: Eliminar un empleado
+      summary: Delete an employee by ID
       parameters:
         - name: id
           in: path
@@ -136,8 +162,8 @@ paths:
           schema:
             type: integer
       responses:
-        '204':
-          description: Eliminado exitosamente
+        "204":
+          description: Employee deleted
 
 components:
   schemas:
@@ -150,7 +176,15 @@ components:
           type: string
         location:
           type: string
-
+    DepartmentInput:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Recursos Humanos
+        location:
+          type: string
+          example: Quito
     Employee:
       type: object
       properties:
@@ -166,3 +200,21 @@ components:
           type: string
         salary:
           type: number
+    EmployeeInput:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Juan Pérez
+        position:
+          type: string
+          example: Analista
+        departmentId:
+          type: integer
+          example: 1
+        email:
+          type: string
+          example: juan.perez@empresa.com
+        salary:
+          type: number
+          example: 1200.50
