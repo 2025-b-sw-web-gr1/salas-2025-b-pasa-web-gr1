@@ -1,0 +1,464 @@
+openapi: 3.0.3
+info:
+  title: JSONPlaceholder API
+  description: >
+    Documentación generada a partir de los archivos `.bru` de JSONPlaceholder de la Clase 008-009.  
+    JSONPlaceholder es una API REST gratuita utilizada para pruebas, demostraciones y prototipado rápido de aplicaciones.
+  version: 1.0.0
+  contact:
+    name: JSONPlaceholder
+    url: https://jsonplaceholder.typicode.com
+
+servers:
+  - url: https://jsonplaceholder.typicode.com
+    description: Servidor principal de la API
+
+tags:
+  - name: Albums
+    description: Endpoints relacionados con álbumes de usuarios.
+  - name: Comments
+    description: Endpoints relacionados con los comentarios de las publicaciones.
+  - name: Photos
+    description: Endpoints relacionados con fotos y galerías.
+  - name: Posts
+    description: Endpoints relacionados con publicaciones de usuarios.
+  - name: Todos
+    description: Endpoints relacionados con tareas (to-do list).
+  - name: Users
+    description: Endpoints relacionados con la información de los usuarios.
+
+paths:
+  /albums:
+    get:
+      tags: [Albums]
+      summary: Obtener todos los álbumes
+      description: Devuelve una lista completa de todos los álbumes disponibles.
+      operationId: getAllAlbums
+      responses:
+        '200':
+          description: Lista de álbumes obtenida correctamente.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Album'
+    post:
+      tags: [Albums]
+      summary: Crear un nuevo álbum
+      description: Crea un nuevo álbum asociado a un usuario.
+      operationId: createAlbum
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlbumInput'
+      responses:
+        '201':
+          description: Álbum creado exitosamente.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Album'
+
+  /albums/{id}:
+    get:
+      tags: [Albums]
+      summary: Obtener un álbum por ID
+      description: Devuelve la información de un álbum específico identificado por su ID.
+      operationId: getAlbumById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Álbum encontrado exitosamente.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Album'
+
+  /comments:
+    get:
+      tags: [Comments]
+      summary: Obtener todos los comentarios
+      description: Devuelve una lista de todos los comentarios o los de una publicación específica si se indica `postId`.
+      operationId: getAllComments
+      parameters:
+        - in: query
+          name: postId
+          required: false
+          schema:
+            type: integer
+          description: ID de la publicación cuyos comentarios se desean obtener.
+      responses:
+        '200':
+          description: Lista de comentarios obtenida correctamente.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Comment'
+    post:
+      tags: [Comments]
+      summary: Crear un nuevo comentario
+      description: Crea un nuevo comentario asociado a una publicación.
+      operationId: createComment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentInput'
+      responses:
+        '201':
+          description: Comentario creado exitosamente.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+
+  /photos:
+    get:
+      tags: [Photos]
+      summary: Obtener todas las fotos
+      description: Devuelve una lista completa de fotos o las de un álbum específico si se indica `albumId`.
+      operationId: getAllPhotos
+      parameters:
+        - in: query
+          name: albumId
+          required: false
+          schema:
+            type: integer
+          description: ID del álbum al que pertenecen las fotos.
+      responses:
+        '200':
+          description: Lista de fotos obtenida correctamente.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Photo'
+
+  /posts:
+    get:
+      tags: [Posts]
+      summary: Obtener todas las publicaciones
+      description: Devuelve una lista de todas las publicaciones disponibles.
+      operationId: getAllPosts
+      responses:
+        '200':
+          description: Lista de publicaciones obtenida correctamente.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+    post:
+      tags: [Posts]
+      summary: Crear una nueva publicación
+      description: Crea una nueva publicación asociada a un usuario.
+      operationId: createPost
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostInput'
+      responses:
+        '201':
+          description: Publicación creada exitosamente.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+
+  /posts/{id}:
+    get:
+      tags: [Posts]
+      summary: Obtener una publicación por ID
+      description: Devuelve los datos de una publicación específica según su ID.
+      operationId: getPostById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Publicación encontrada exitosamente.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+    put:
+      tags: [Posts]
+      summary: Reemplazar una publicación
+      description: Actualiza completamente una publicación existente mediante PUT.
+      operationId: updatePostPut
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      responses:
+        '200':
+          description: Publicación actualizada correctamente.
+    patch:
+      tags: [Posts]
+      summary: Actualizar parcialmente una publicación
+      description: Actualiza solo algunos campos (como el título) de una publicación existente.
+      operationId: updatePostTitle
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+      responses:
+        '200':
+          description: Publicación actualizada parcialmente.
+    delete:
+      tags: [Posts]
+      summary: Eliminar una publicación
+      description: Elimina una publicación existente por su ID.
+      operationId: deletePost
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Publicación eliminada correctamente.
+
+  /todos:
+    get:
+      tags: [Todos]
+      summary: Obtener todas las tareas
+      description: Devuelve una lista de todas las tareas (to-dos) registradas.
+      operationId: getAllTodos
+      responses:
+        '200':
+          description: Lista de tareas obtenida correctamente.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Todo'
+    post:
+      tags: [Todos]
+      summary: Crear una nueva tarea
+      description: Crea una nueva tarea asociada a un usuario.
+      operationId: createTodo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TodoInput'
+      responses:
+        '201':
+          description: Tarea creada exitosamente.
+
+  /todos/{id}:
+    get:
+      tags: [Todos]
+      summary: Obtener una tarea por ID
+      description: Devuelve los detalles de una tarea específica según su ID.
+      operationId: getTodoById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Tarea encontrada exitosamente.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+
+  /users:
+    get:
+      tags: [Users]
+      summary: Obtener todos los usuarios
+      description: Devuelve una lista con todos los usuarios registrados.
+      operationId: getAllUsers
+      responses:
+        '200':
+          description: Lista de usuarios obtenida correctamente.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+
+  /users/{id}:
+    get:
+      tags: [Users]
+      summary: Obtener un usuario por ID
+      description: Devuelve la información de un usuario específico identificado por su ID.
+      operationId: getUserById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Usuario encontrado exitosamente.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+
+components:
+  schemas:
+    Album:
+      type: object
+      properties:
+        userId:
+          type: integer
+        id:
+          type: integer
+        title:
+          type: string
+    AlbumInput:
+      type: object
+      properties:
+        userId:
+          type: integer
+        title:
+          type: string
+      required: [title, userId]
+
+    Comment:
+      type: object
+      properties:
+        postId:
+          type: integer
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        body:
+          type: string
+    CommentInput:
+      type: object
+      properties:
+        postId:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        body:
+          type: string
+      required: [postId, name, email, body]
+
+    Photo:
+      type: object
+      properties:
+        albumId:
+          type: integer
+        id:
+          type: integer
+        title:
+          type: string
+        url:
+          type: string
+        thumbnailUrl:
+          type: string
+
+    Post:
+      type: object
+      properties:
+        userId:
+          type: integer
+        id:
+          type: integer
+        title:
+          type: string
+        body:
+          type: string
+    PostInput:
+      type: object
+      properties:
+        userId:
+          type: integer
+        title:
+          type: string
+        body:
+          type: string
+      required: [userId, title, body]
+
+    Todo:
+      type: object
+      properties:
+        userId:
+          type: integer
+        id:
+          type: integer
+        title:
+          type: string
+        completed:
+          type: boolean
+    TodoInput:
+      type: object
+      properties:
+        userId:
+          type: integer
+        title:
+          type: string
+        completed:
+          type: boolean
+      required: [userId, title, completed]
+
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        username:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        website:
+          type: string
