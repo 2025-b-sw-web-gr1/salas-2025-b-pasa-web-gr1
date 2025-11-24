@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitch Clone</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">⬢</div>
+            <nav class="nav-links">
+                <a href="#" class="nav-link">Explorar</a>
+                <a href="#" class="nav-link">Esports</a>
+            </nav>
+        </div>
+        
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Buscar">
+            <button class="search-btn">🔍</button>
+        </div>
+        
+        <div class="header-right">
+            <button class="icon-btn">⋮</button>
+            <button class="icon-btn">🔔</button>
+            <button class="login-btn">Iniciar sesión</button>
+            <button class="signup-btn">Registrarse</button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <div class="sidebar-title">Canales recomendados</div>
+                
+                <div class="channel-item">
+                    <div class="channel-avatar"></div>
+                    <div class="channel-info">
+                        <div class="channel-name">StreamerPro</div>
+                        <div class="channel-game">Valorant</div>
+                    </div>
+                    <div class="live-indicator"></div>
+                    <div class="viewer-count">12.5K</div>
+                </div>
+
+                <div class="channel-item">
+                    <div class="channel-avatar"></div>
+                    <div class="channel-info">
+                        <div class="channel-name">GamerElite</div>
+                        <div class="channel-game">League of Legends</div>
+                    </div>
+                    <div class="live-indicator"></div>
+                    <div class="viewer-count">8.2K</div>
+                </div>
+
+                <div class="channel-item">
+                    <div class="channel-avatar"></div>
+                    <div class="channel-info">
+                        <div class="channel-name">JustChatting</div>
+                        <div class="channel-game">Just Chatting</div>
+                    </div>
+                    <div class="live-indicator"></div>
+                    <div class="viewer-count">5.7K</div>
+                </div>
+
+                <div class="channel-item">
+                    <div class="channel-avatar"></div>
+                    <div class="channel-info">
+                        <div class="channel-name">MinecraftMaster</div>
+                        <div class="channel-game">Minecraft</div>
+                    </div>
+                    <div class="live-indicator"></div>
+                    <div class="viewer-count">3.4K</div>
+                </div>
+
+                <div class="channel-item">
+                    <div class="channel-avatar"></div>
+                    <div class="channel-info">
+                        <div class="channel-name">FortniteKing</div>
+                        <div class="channel-game">Fortnite</div>
+                    </div>
+                    <div class="live-indicator"></div>
+                    <div class="viewer-count">2.1K</div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Canales seguidos</div>
+                
+                <div class="channel-item">
+                    <div class="channel-avatar"></div>
+                    <div class="channel-info">
+                        <div class="channel-name">MyFavorite</div>
+                        <div class="channel-game">CS2</div>
+                    </div>
+                    <div class="live-indicator"></div>
+                    <div class="viewer-count">15.3K</div>
+                </div>
+
+                <div class="channel-item">
+                    <div class="channel-avatar"></div>
+                    <div class="channel-info">
+                        <div class="channel-name">BestStreamer</div>
+                        <div class="channel-game">Dota 2</div>
+                    </div>
+                    <div class="live-indicator"></div>
+                    <div class="viewer-count">9.8K</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="content">
+            <div class="category-header">
+                <h1 class="category-title">Canales en vivo que podrían gustarte</h1>
+                <p class="category-subtitle">Basado en tus gustos</p>
+            </div>
+
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="live-badge">En vivo</div>
+                        <div class="viewer-badge">12.5K espectadores</div>
+                    </div>
+                    <div class="video-info">
+                        <div class="video-avatar"></div>
+                        <div class="video-details">
+                            <div class="video-title">Ranked de Valorant - Subiendo a Radiante</div>
+                            <div class="video-streamer">StreamerPro</div>
+                            <div class="video-game">Valorant</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="live-badge">En vivo</div>
+                        <div class="viewer-badge">8.2K espectadores</div>
+                    </div>
+                    <div class="video-info">
+                        <div class="video-avatar"></div>
+                        <div class="video-details">
+                            <div class="video-title">¡Partidas clasificatorias! Road to Challenger</div>
+                            <div class="video-streamer">GamerElite</div>
+                            <div class="video-game">League of Legends</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="live-badge">En vivo</div>
+                        <div class="viewer-badge">5.7K espectadores</div>
+                    </div>
+                    <div class="video-info">
+                        <div class="video-avatar"></div>
+                        <div class="video-details">
+                            <div class="video-title">Charlando con el chat y reaccionando a videos</div>
+                            <div class="video-streamer">JustChatting</div>
+                            <div class="video-game">Just Chatting</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="live-badge">En vivo</div>
+                        <div class="viewer-badge">3.4K espectadores</div>
+                    </div>
+                    <div class="video-info">
+                        <div class="video-avatar"></div>
+                        <div class="video-details">
+                            <div class="video-title">Construyendo castillo épico en survival</div>
+                            <div class="video-streamer">MinecraftMaster</div>
+                            <div class="video-game">Minecraft</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="live-badge">En vivo</div>
+                        <div class="viewer-badge">2.1K espectadores</div>
+                    </div>
+                    <div class="video-info">
+                        <div class="video-avatar"></div>
+                        <div class="video-details">
+                            <div class="video-title">Victoria Royale Challenge - 10 wins seguidas</div>
+                            <div class="video-streamer">FortniteKing</div>
+                            <div class="video-game">Fortnite</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <div class="live-badge">En vivo</div>
+                        <div class="viewer-badge">15.3K espectadores</div>
+                    </div>
+                    <div class="video-info">
+                        <div class="video-avatar"></div>
+                        <div class="video-details">
+                            <div class="video-title">Torneo profesional - Grand Finals</div>
+                            <div class="video-streamer">MyFavorite</div>
+                            <div class="video-game">CS2</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
