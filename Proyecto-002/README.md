@@ -118,8 +118,8 @@ export class TeamsController {
   @ApiOperation({ summary: 'Crear un nuevo equipo' })
   @ApiResponse({ status: 201, description: 'Equipo creado exitosamente' })
   @ApiResponse({ status: 400, description: 'Datos inválidos' })
-  create(@Body() createTeamDto: CreateTeamDto) {
-    return this.teamsService.create(createTeamDto);
+  create(@Body() teamDto: TeamDto) {
+    return this.teamsService.create(teamDto);
   }
 }
 ```
@@ -130,7 +130,7 @@ export class TeamsController {
 ```typescript
 import { ApiProperty } from '@nestjs/swagger';
 
-export class CreateTeamDto {
+export class TeamDto {
   @ApiProperty({ example: 'Barcelona FC' })
   name: string;
 
@@ -143,7 +143,7 @@ export class CreateTeamDto {
 ```typescript
 import { ApiProperty } from '@nestjs/swagger';
 
-export class CreatePlayerDto {
+export class PlayerDto {
   @ApiProperty({ example: 'Lionel Messi' })
   name: string;
 
